@@ -5,6 +5,8 @@ const CLOUD_Y = 10;
 const CLOUD_HEIGHT = 270;
 const CLOUD_WIDTH = 420;
 const CLOUD_GAP = 20;
+const SHODOW_X = 110;
+const SHODOW_Y = 20;
 const FONT_GAP = 10;
 const BAR_HEIGHT = 150;
 const BAR_WIDTH = 40;
@@ -22,7 +24,7 @@ const colorCloud = `#fff`;
 
 const renderCloud = function (ctx) {
   ctx.fillStyle = colorShodow;
-  ctx.fillRect(CLOUD_X + FONT_GAP, CLOUD_Y + FONT_GAP, CLOUD_WIDTH, CLOUD_HEIGHT);
+  ctx.fillRect(SHODOW_X, SHODOW_Y, CLOUD_WIDTH, CLOUD_HEIGHT);
   ctx.fillStyle = colorCloud;
   ctx.fillRect(CLOUD_X, CLOUD_Y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
