@@ -31,7 +31,7 @@
   const getRenderWizard = (wizard) => {
     const wizardElement = similarWizardTemplate.cloneNode(true);
 
-    wizardElement.querySelector(`.setup-similar-label`).textContent = wizard.firstName + wizard.lastName;
+    wizardElement.querySelector(`.setup-similar-label`).textContent = wizard.firstName + ` ` + wizard.lastName;
     wizardElement.querySelector(`.wizard-eyes`).style.fill = wizard.eyesColor;
     wizardElement.querySelector(`.wizard-coat`).style.fill = wizard.coatColor;
     return wizardElement;
