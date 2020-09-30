@@ -28,7 +28,7 @@
   };
 
   const wizards = [];
-  
+
   while (wizards.length < 4) {
     wizards.push(getWizard());
   }
