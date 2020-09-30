@@ -15,23 +15,28 @@
     .content
     .querySelector(`.setup-similar-item`);
 
-  const wizards = [];
+  const getRandomProperty = (array) => {
+    return array[Math.floor(array.length * Math.random())];
+  };
 
-  for (let i = 0; i < 4; i++) {
-    const wizardCreate = {
-      firstName: FIRST_NAMES[Math.floor(Math.random() * FIRST_NAMES.length)],
-      lastName: SECOND_NAMES[Math.floor(Math.random() * SECOND_NAMES.length)],
-      coatColor: COAT_COLOR[Math.floor(Math.random() * COAT_COLOR.length)],
-      eyesColor: EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)]
+  const getWizard = () => {
+    return {
+      name: `${getRandomProperty(FIRST_NAMES)} ${getRandomProperty(SECOND_NAMES)}`,
+      coatColor: getRandomProperty(COAT_COLOR),
+      eyesColor: getRandomProperty(EYES_COLOR)
     };
+  };
 
-    wizards.push(wizardCreate);
+  const wizards = [];
+  
+  while (wizards.length < 4) {
+    wizards.push(getWizard());
   }
 
   const getRenderWizard = (wizard) => {
     const wizardElement = similarWizardTemplate.cloneNode(true);
 
-    wizardElement.querySelector(`.setup-similar-label`).textContent = wizard.firstName + wizard.lastName;
+    wizardElement.querySelector(`.setup-similar-label`).textContent = wizard.name;
     wizardElement.querySelector(`.wizard-eyes`).style.fill = wizard.eyesColor;
     wizardElement.querySelector(`.wizard-coat`).style.fill = wizard.coatColor;
     return wizardElement;
