@@ -1,6 +1,7 @@
 'use strict';
 
 (function () {
+  const MIN_NUMBER_WIZARD = 4;
   const FIRST_NAMES = [`Иван`, `Хуан Себастьян`, `Мария`, `Кристоф`, `Виктор`, `Юлия`, `Люпита`, `Вашингтон`];
   const SECOND_NAMES = [`да Марья`, `Верон`, `Мирабелла`, `Вальц`, `Онопко`, `Топольницкая`, `Нионго`, `Ирвинг`];
   const COAT_COLOR = [`rgb(101, 137, 164)`, `rgb(241, 43, 107)`, `rgb(146, 100, 161)`, `rgb(56, 159, 117)`, `rgb(215, 210, 55)`, `rgb(0, 0, 0)`];
@@ -40,7 +41,7 @@
   }
 
   const getWizardsList = () => {
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < MIN_NUMBER_WIZARD; i++) {
       wizards.push(getRandomWizard());
     }
     return wizards;
@@ -75,7 +76,7 @@
   const setupUserName = setup.querySelector('.setup-user-name');
 
   const onPopupEscPress = (evt) => {
-    if (evt.key === 'Escape' && setupUserName !== document.activeElement) {
+    if (evt.keyCode === 27 && setupUserName !== document.activeElement) {
       setup.classList.add('hidden');
     }
   }
@@ -98,7 +99,7 @@
   });
 
   setupOpen.addEventListener('keydown', function (evt) {
-    if (evt.key === 'Enter') {
+    if (evt.keyCode === 13) {
       evt.preventDefault();
       openPopup();
     }
@@ -109,7 +110,7 @@
   });
 
   setupClose.addEventListener('keydown', function (evt) {
-    if (evt.key === 'Enter') {
+    if (evt.keyCode === 13) {
       evt.preventDefault();
       closePopup();
     }
